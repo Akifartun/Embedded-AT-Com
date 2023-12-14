@@ -16,7 +16,7 @@
 
 * İlk olarak modem kitinin kurulumu için referans alacağım [siteyi](https://docs.sixfab.com/docs/raspberry-pi-4g-lte-cellular-modem-kit-getting-started) buldum.
 * Bu sitedeki donanımsal olarak gerekli bütün adımları dikkatli bir şekilde yaptım.
-* Donanımsal gereklilikler bittikten sonra https://connect.sixfab.com/#/ sitesi üzerinden giriş yaparak burdan elde ettiğim *"sudo bash -c "$(curl -sN https://install.connect.sixfab.com)" -- -t Exclaim-Sliding-Defy-Hungrily-Shrank-Unedited -r emea"* satırını Raspberry Pi terminal ekranında çalıştırdıktan sonra cihazımı Sixfab Core ile başarıyla bağladım. 
+* Donanımsal gereklilikler bittikten sonra https://connect.sixfab.com/#/ sitesi üzerinden giriş yaparak burdan elde ettiğim *"sudo bash -c "$(curl -sN https://install.connect.sixfab.com)" -- -t YOUR_TOKEN_APPEARS_HERE -r emea"* satırını Raspberry Pi terminal ekranında çalıştırdıktan sonra cihazımı Sixfab Core ile başarıyla bağladım. 
 
 ### Github Repo Açma ve Git komutları 
 
