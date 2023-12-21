@@ -19,7 +19,7 @@
 * After the hardware requirements were completed, I logged in to https://connect.sixfab.com/#/ and ran the line *"sudo bash -c "$(curl -sN https://install.connect.sixfab.com)" -- -t YOUR_TOKEN_APPEARS_HERE -r emea "* on the Raspberry Pi terminal screen and successfully connected my device with Sixfab Core.
 
 ### Github Repo Open and Git commands
-* Firstly, I created a repository called "internship" from my Github account.
+* Firstly, I created a repository called "staj" from my Github account.
 * Since there should be a weekly directory in this repo, I created an empty markdown file under the weekly directory.
 * In order to understand git commands and apply what I understand, I added the README file to the repository in the "sixfab" directory I created on the computer with the following codes.
 	* cd Desktop
@@ -32,6 +32,6 @@
 * After learning git commands, I uploaded this report to github with git commands.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyMjU4NDE0MSwtMzY2MTk1ODYwLDIwOT
-Y1NjI1NTQsLTM5NjU2MzA1NV19
+eyJoaXN0b3J5IjpbLTUwMjMyMDMwMywxMzIyNTg0MTQxLC0zNj
+YxOTU4NjAsMjA5NjU2MjU1NCwtMzk2NTYzMDU1XX0=
 -->
