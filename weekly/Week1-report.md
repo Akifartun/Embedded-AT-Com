@@ -2,7 +2,7 @@
 									Akif Artun 14.12.2023
 ### Raspberry Pi 3B Setup
 
-* Firstly, I downloaded the [Raspberry Pi  Systenıia](https://aspberrypi.com/software/operating-systems/) that I will install into the SD card inside the Raspberry Pi 3B set.
+* Firstly, I downloaded the [Raspberry Pi  OS](https://raspberrypi.com/software/operating-systems/) that I will install into the SD card inside the Raspberry Pi 3B set.
 * After downloading the Raspberry Pi  Systenia, this media needed to be loaded onto the SD card to be ready for installation, and I used the [BalenaEtcher application](https://etcher.balena.io/) to make it ready.
 * Since I prepared the SD card, I started to make the necessary connections for the next step, Raspberry Pi 3B. These connections;
 	* HDMI cable connection for the monitor to access the Raspberry Pi via the display,
@@ -32,6 +32,6 @@
 * After learning git commands, I uploaded this report to github with git commands.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2NjE5NTg2MCwyMDk2NTYyNTU0LC0zOT
-Y1NjMwNTVdfQ==
+eyJoaXN0b3J5IjpbMTMyMjU4NDE0MSwtMzY2MTk1ODYwLDIwOT
+Y1NjI1NTQsLTM5NjU2MzA1NV19
 -->
