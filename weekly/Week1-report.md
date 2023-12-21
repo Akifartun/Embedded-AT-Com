@@ -6,10 +6,10 @@
 * After downloading the Raspberry Pi  Systenia, this media needed to be loaded onto the SD card to be ready for installation, and I used the [BalenaEtcher application](https://etcher.balena.io/) to make it ready.
 * Since I prepared the SD card, I started to make the necessary connections for the next step, Raspberry Pi 3B. These connections;
 	* HDMI cable connection for the monitor to access the Raspberry Pi via the display,
-	* Mouse bağlantısı,
-	* Klavye bağlantısı, 
-	* İlk kurulumda gerekli internet için LAN kablosu bağlantısıdır.
-* Bu adımlardan sonra artık adaptör aracılığıyla Raspberry Pi'a güç verdim.
+	* Mouse connection,
+	* Keyboard connection,
+	* The LAN cable connection for the internet is required for the first installation.
+* After these steps, I now powered the Raspberry Pi via the adapter.
 * Son olarak kurulum işlemlerini sırasıyla yaptıktan sonra Raspberry Pi kullanıma hazır hale geldi. 
 
 ### Sixfab 4G/LTE Cellular Modem Kit Kurulumu 
@@ -33,5 +33,5 @@
 * Git komutlarını öğrendikten sonra bu raporumu da git komutlarıyla githuba yükledim. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUwMjgyNTcxNywtMzk2NTYzMDU1XX0=
+eyJoaXN0b3J5IjpbMjA5NjU2MjU1NCwtMzk2NTYzMDU1XX0=
 -->
