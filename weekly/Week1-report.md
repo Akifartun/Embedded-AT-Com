@@ -1,9 +1,9 @@
-## Hafta 1
+##  1
 									Akif Artun 14.12.2023
-### Raspberry Pi 3B Kurulumu
+### Raspberry Pi 3B Setup
 
-* Öncelikle Raspberry Pi 3B setinin içinde bulunan SD kartının içine yükleyeceğim  [Raspberry Pi İşletim Sistemi medyasını](https://www.raspberrypi.com/software/operating-systems/) indirdim. 
-* Raspberry Pi İşletim Sistemi medyasını indirdikten sonra bu medyanın kuruluma hazır olması için SD karta yüklenmesi gerekmekteydi ve [BalenaEtcher uygulaması](https://etcher.balena.io/) kullanarak bunun hazır olmasını sağladım. 
+* Firstly, I downloaded the [Raspberry Pi  Systenıia](https://aspberrypi.com/software/operating-systems/) that I will install into the SD card inside the Raspberry Pi 3B set.
+* After downloading the Raspberry Pi  Systenia, this media needed to be loaded onto the SD card to be ready for installation, and I used the [BalenaEtcher application](https://etcher.balena.io/) to make it ready.
 * SD kartını hazırladığım için bir sonraki adım olan Raspberry Pi 3B için gerekli bağlantıların yapılmasına başladım. Bu bağlantılar;
 	* Raspberry Pi' a ekran üzerinden erişilmesi için monitörün HDMI kablosu bağlantısı,
 	* Mouse bağlantısı,
@@ -33,5 +33,5 @@
 * Git komutlarını öğrendikten sonra bu raporumu da git komutlarıyla githuba yükledim. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NjU2MzA1NV19
+eyJoaXN0b3J5IjpbLTczNTA4MDEwLC0zOTY1NjMwNTVdfQ==
 -->
