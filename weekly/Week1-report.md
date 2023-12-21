@@ -1,4 +1,4 @@
-##  1
+##  Week 1
 									Akif Artun 14.12.2023
 ### Raspberry Pi 3B Setup
 
@@ -15,14 +15,13 @@
 ### Sixfab 4G/LTE Cellular Modem Kit Installation
 
 * Firstly, I found [site](https://docs.sixfab.com/docs/raspberry-pi-4g-lte-cellular-modem-kit-getting-started) which I will refer to for the installation of the modem kit.
-* Bu sitedeki donanımsal olarak gerekli bütün adımları dikkatli bir şekilde yaptım.
-* Donanımsal gereklilikler bittikten sonra https://connect.sixfab.com/#/ sitesi üzerinden giriş yaparak burdan elde ettiğim *"sudo bash -c "$(curl -sN https://install.connect.sixfab.com)" -- -t YOUR_TOKEN_APPEARS_HERE -r emea"* satırını Raspberry Pi terminal ekranında çalıştırdıktan sonra cihazımı Sixfab Core ile başarıyla bağladım. 
+* I have carefully done all the necessary steps on this site hardware.
+* After the hardware requirements were completed, I logged in to https://connect.sixfab.com/#/ and ran the line *"sudo bash -c "$(curl -sN https://install.connect.sixfab.com)" -- -t YOUR_TOKEN_APPEARS_HERE -r emea "* on the Raspberry Pi terminal screen and successfully connected my device with Sixfab Core.
 
-### Github Repo Açma ve Git komutları 
-
-* İlk olarak Github hesabımdan "staj" adında bir repository oluşturdum.
-* Bu reponun içinde weekly dizini olması gerektiği için bir tane boş markdown dosyasını weekly dizini altında oluşturdum.
-* Git komutlarını anlamak ve anladıklarımı uygulamak için README dosyasını bilgisayarda oluşturduğum "sixfab" dizini içerisinde aşağıda belirttiğim kodlar ile repoya ekledim. 
+### Github Repo Open and Git commands
+* Firstly, I created a repository called "internship" from my Github account.
+* Since there should be a weekly directory in this repo, I created an empty markdown file under the weekly directory.
+* In order to understand git commands and apply what I understand, I added the README file to the repository in the "sixfab" directory I created on the computer with the following codes.
 	* cd Desktop
 	* cd sixfab
 	* git init
@@ -30,9 +29,9 @@
 	* git commit -m "README file"
 	* git remote add origin https://github.com/Akifartun/staj.git
 	* git push -u origin master
-* Git komutlarını öğrendikten sonra bu raporumu da git komutlarıyla githuba yükledim. 
+* After learning git commands, I uploaded this report to github with git commands.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4ODk5MTc1OSwyMDk2NTYyNTU0LC0zOT
+eyJoaXN0b3J5IjpbLTM2NjE5NTg2MCwyMDk2NTYyNTU0LC0zOT
 Y1NjMwNTVdfQ==
 -->
