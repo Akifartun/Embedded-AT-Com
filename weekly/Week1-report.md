@@ -10,11 +10,11 @@
 	* Keyboard connection,
 	* The LAN cable connection for the internet is required for the first installation.
 * After these steps, I now powered the Raspberry Pi via the adapter.
-* Son olarak kurulum işlemlerini sırasıyla yaptıktan sonra Raspberry Pi kullanıma hazır hale geldi. 
+* Finally, after performing the installation processes respectively, Raspberry Pi is ready for use.
 
-### Sixfab 4G/LTE Cellular Modem Kit Kurulumu 
+### Sixfab 4G/LTE Cellular Modem Kit Installation
 
-* İlk olarak modem kitinin kurulumu için referans alacağım [siteyi](https://docs.sixfab.com/docs/raspberry-pi-4g-lte-cellular-modem-kit-getting-started) buldum.
+* Firstly, I found [site](https://docs.sixfab.com/docs/raspberry-pi-4g-lte-cellular-modem-kit-getting-started) which I will refer to for the installation of the modem kit.
 * Bu sitedeki donanımsal olarak gerekli bütün adımları dikkatli bir şekilde yaptım.
 * Donanımsal gereklilikler bittikten sonra https://connect.sixfab.com/#/ sitesi üzerinden giriş yaparak burdan elde ettiğim *"sudo bash -c "$(curl -sN https://install.connect.sixfab.com)" -- -t YOUR_TOKEN_APPEARS_HERE -r emea"* satırını Raspberry Pi terminal ekranında çalıştırdıktan sonra cihazımı Sixfab Core ile başarıyla bağladım. 
 
@@ -33,5 +33,6 @@
 * Git komutlarını öğrendikten sonra bu raporumu da git komutlarıyla githuba yükledim. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5NjU2MjU1NCwtMzk2NTYzMDU1XX0=
+eyJoaXN0b3J5IjpbMTE4ODk5MTc1OSwyMDk2NTYyNTU0LC0zOT
+Y1NjMwNTVdfQ==
 -->
