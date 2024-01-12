@@ -29,5 +29,10 @@
     * **+CGDCONT: 3,"IPV4V6","SOS","0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0",0,0,0,1**
   * In the next step, I ran the `AT+QIACT=1` command to activate the PDP content.**Hata** verdi
   * Although I tried the solutions I could find in the Error Handling section in the [Reference Book](https://www.quectel.com/download/quectel_lte_standard_https_application_note_v1-1) and on the internet, I still could not solve this error. This slowed me down a lot.
+<<<<<<< HEAD
   
   ![Error AT+QIACT](./images/at+qiact_error.png) 
+=======
+
+    ![Error AT+QIACT](./images/at+qiact_error.png) 
+>>>>>>> c9f5d5a374e17f30dce3671ddf79f661d3a92e7d
