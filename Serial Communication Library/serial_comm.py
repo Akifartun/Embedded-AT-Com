@@ -23,12 +23,11 @@ class Communicate:
         return self.serial.isOpen()
 
     def print_result(self, response):
-
         print(f" Command: {response[0]} \n")
         print(f" Response: \n")
 
         for i in range(1, len(response) - 1):
-            print(f" {response[i]} \n")
+            print(f" {response[i]}\n")
 
     def configure_serial(self, port=None, baudrate=None, parity=None, timeout=None):
         """
@@ -81,7 +80,7 @@ class Communicate:
             if not self.is_open():
                 print("Serial port is not open.")
                 return None
-            time.sleep(0.5)
+            time.sleep(1)
             response = self.serial.read_all().decode()
 
             rspn = response.split("\n")
@@ -182,6 +181,28 @@ class Communicate:
                 return None
 
         print("!!!!!!!! Preperations for HTTP is COMPLETED !!!!!!!!\n")
+
+    def communicate_MQTT(self, data="Default Message"):
+        data_length = len(data.encode('utf-8'))
+        comms = [
+            "AT",
+            "AT+QMTOPEN=0,\"broker.hivemq.com\",1883",
+            "AT+QMTCONN=0,\"Communicate\"",
+            "AT+QMTSUB=0,1,\"topic/pub\",0",
+            f"AT+QMTPUBEX=0,0,0,0,\"topic/pub\",{data_length}",
+            data,
+            "AT+QMTDISC=0"
+        ]
+
+        for comm in comms:
+            self.send_at_command(comm)
+            response = self.get_at_command().strip()
+            if (response == 'ERROR'):
+                print("Program gives error.\n")
+                return None
+            elif ("QMTSTAT: 0,1" in response):
+                print("Program gives error.\n")
+                return None
 
     def close(self):
         """
