@@ -13,21 +13,7 @@ class Communicate:
             self.serial = serial.Serial(port, baudrate, timeout=timeout, parity=parity)
         except serial.SerialException as s:
             print("Connection Failed...\n", s)
-            exit(0)
-
-    def is_open(self):
-        """
-        Checks if the serial port is open.
-        :return: True if the serial port is open, False otherwise.
-        """
-        return self.serial.isOpen()
-
-    def print_result(self, response):
-        print(f" Command: {response[0]} \n")
-        print(f" Response: \n")
-
-        for i in range(1, len(response) - 1):
-            print(f" {response[i]}\n")
+            return None
 
     def configure_serial(self, port=None, baudrate=None, parity=None, timeout=None):
         """
@@ -85,19 +71,79 @@ class Communicate:
 
             rspn = response.split("\n")
             self.print_result(rspn)
-
             return rspn[len(rspn) - 2]
         except serial.SerialException as s:
             print(f"Error getting AT command response: {s}")
             return None
 
-    def read_data_HTTP(self):
-        self.send_at_command("AT+QHTTPREAD=80")
-        time.sleep(2)
-        response = self.serial.read_all().decode()
-        print(response)
+    def is_open(self):
+        """
+        Checks if the serial port is open.
+        :return: True if the serial port is open, False otherwise.
+        """
+        return self.serial.isOpen()
+
+    def print_result(self, response):
+        """
+        Prints the result of the AT command.
+        :param response: AT command response.
+        :return: None
+        """
+        print(f" Command: {response[0]} \n")
+        print(f" Response: \n")
+
+        for i in range(1, len(response) - 1):
+            print(f" {response[i]}\n")
+
+    def close(self):
+        """
+        Closes the serial communication.
+        """
+        self.serial.close()
+        print("Communication closed...")
+
+
+class HTTP_COMM:
+    def __init__(self, comm):
+        self.comm = comm
+
+    def prep_for_HTTP(self):
+        """
+        Makes presets for HTTP communication.
+        :return: None
+        """
+        preps = [
+            "AT",
+            "AT+QHTTPCFG= \"contextid\",1",
+            "AT+QHTTPCFG= \"responseheader\",1",
+            "AT+QIACT?",
+            "AT+QICSGP=1,1,\"de1.super\",\"\",\"\",1",
+            "AT+QIACT=1"
+        ]
+
+        for prep in preps:
+            self.comm.send_at_command(prep)
+            time.sleep(0.5)
+            response = self.comm.serial.read_all().decode()
+
+            rspn = response.split("\n")
+            self.comm.print_result(rspn)
+
+            if ("+QIACT:" in rspn[1]):
+                print("!!!!!!!! Preperations for HTTP is COMPLETED !!!!!!!!\n")
+                return None
+            if (rspn[len(rspn) - 2].strip() == 'ERROR'):
+                print("Program gives error.\n")
+                return None
+
+        print("!!!!!!!! Preperations for HTTP is COMPLETED !!!!!!!!\n")
 
     def get_data_HTTP(self, url):
+        """
+        Makes HTTP GET request from the specified URL.
+        :param url: URL to make GET request.
+        :return: None
+        """
         self.prep_for_HTTP()
 
         byte_length = len(url.encode('utf-8'))
@@ -109,19 +155,31 @@ class Communicate:
         ]
 
         for command in commands:
-            self.send_at_command(command)
-            result = self.get_at_command().strip()
+            self.comm.send_at_command(command)
+            result = self.comm.get_at_command().strip()
             if (result == 'CONNECT'):
-                time.sleep(3)
-                self.send_at_command(url)
-                continue
+                time.sleep(1)
+                self.comm.send_at_command(url)
+                time.sleep(1)
             if (result == 'ERROR'):
                 print("Program gives error.\n")
                 return None
+        time.sleep(1)
 
-        print("!!!!!!!! HTTP GET : SUCCESS !!!!!!!!\n")
+        rspn = self.read_data_HTTP()
+        if ("ERROR" in rspn[len(rspn) - 2]):
+            print("Program gives error.\n")
+            return None
+        else:
+            print("!!!!!!!! HTTP GET : SUCCESS !!!!!!!!\n")
 
-    def post_data_HTTP(self, url, data):
+    def post_data_HTTP(self, url, data="Default Message"):
+        """
+        Makes HTTP POST request to the specified URL.
+        :param url: URL to make POST request.
+        :param data: POST data (default value: "Default Message").
+        :return: None
+        """
         data = "Message=" + data
         self.prep_for_HTTP()
 
@@ -135,56 +193,60 @@ class Communicate:
         ]
 
         for command in commands:
-            self.send_at_command(command)
-            result = self.get_at_command().strip()
+            self.comm.send_at_command(command)
+            result = self.comm.get_at_command().strip()
             if (result == 'CONNECT'):
                 if ("URL" in command):
                     print("Entering URL")
                     time.sleep(1)
-                    self.send_at_command(url)
+                    self.comm.send_at_command(url)
                     time.sleep(1)
+                    self.comm.get_at_command().strip()
                 elif ("POST" in command):
                     print("Entering Data")
                     time.sleep(1)
-                    self.send_at_command(data)
+                    self.comm.send_at_command(data)
                     time.sleep(1)
-                self.get_at_command().strip()
+                    self.comm.get_at_command().strip()
             if (result == 'ERROR'):
                 print("Program gives error.\n")
                 return None
+        time.sleep(1)
 
-        print("!!!!!!!! HTTP POST : SUCCESS !!!!!!!!\n")
+        rspn = self.read_data_HTTP()
+        if ("ERROR" in rspn[len(rspn) - 2]):
+            print("Program gives error.\n")
+            return None
+        else:
+            print("!!!!!!!! HTTP GET : SUCCESS !!!!!!!!\n")
 
-    def prep_for_HTTP(self):
-        preps = [
-            "AT",
-            "AT+QHTTPCFG= \"contextid\",1",
-            "AT+QHTTPCFG= \"responseheader\",1",
-            "AT+QIACT?",
-            "AT+QICSGP=1,1,\"de1.super\",\"\",\"\",1",
-            "AT+QIACT=1"
-        ]
+    def read_data_HTTP(self):
+        """
+        Reads data over HTTP.
+        :return: Data read over HTTP.
+        """
+        print("\n !!!!!! READING DATA !!!!!!\n\n")
+        self.comm.send_at_command("AT+QHTTPREAD=80")
+        time.sleep(2)
+        response = self.comm.serial.read_all().decode()
+        rspn = response.split("\n")
+        for i in range(1, len(rspn) - 1):
+            print(f" {rspn[i]}\n")
+        return rspn
 
-        for prep in preps:
-            self.send_at_command(prep)
-            time.sleep(0.5)
-            response = self.serial.read_all().decode()
 
-            rspn = response.split("\n")
-            self.print_result(rspn)
-
-            if ("+QIACT:" in rspn[1]):
-                print("!!!!!!!! Preperations for HTTP is COMPLETED !!!!!!!!\n")
-                return None
-            if (rspn[len(rspn) - 2].strip() == 'ERROR'):
-                print("Program gives error.\n")
-                return None
-
-        print("!!!!!!!! Preperations for HTTP is COMPLETED !!!!!!!!\n")
+class MQTT_COMM:
+    def __init__(self, comm):
+        self.comm = comm
 
     def communicate_MQTT(self, data="Default Message"):
+        """
+        Performs MQTT communication.
+        :param data: MQTT transmitted data (default value: "Default Message").
+        :return: None
+        """
         data_length = len(data.encode('utf-8'))
-        comms = [
+        commands = [
             "AT",
             "AT+QMTOPEN=0,\"broker.hivemq.com\",1883",
             "AT+QMTCONN=0,\"Communicate\"",
@@ -194,9 +256,12 @@ class Communicate:
             "AT+QMTDISC=0"
         ]
 
-        for comm in comms:
-            self.send_at_command(comm)
-            response = self.get_at_command().strip()
+        for command in commands:
+            self.comm.send_at_command(command)
+            response = self.comm.get_at_command().strip()
+            if ("RECV" in response):
+                print("!!!!!! Message succesfully recieved. !!!!!!")
+                time.sleep(2)
             if (response == 'ERROR'):
                 print("Program gives error.\n")
                 return None
@@ -204,9 +269,3 @@ class Communicate:
                 print("Program gives error.\n")
                 return None
 
-    def close(self):
-        """
-        Closes the serial communication.
-        """
-        self.serial.close()
-        print("Communication closed...")
