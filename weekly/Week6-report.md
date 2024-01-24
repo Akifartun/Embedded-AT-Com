@@ -14,8 +14,8 @@
 Two different successful MQTT connections are shown below.
 
 
-![full_connection_1](/images/qmt_full_conn_OK.png)
-![full_connection_2](/images/qmt_full_conn_OK_2.png)
+![full_connection_1](images/qmt_full_conn_OK.png)
+![full_connection_2](images/qmt_full_conn_OK_2.png)
 
 #### - Developing the Communication with MQTT on Python Library
 
@@ -53,8 +53,8 @@ def communicate_MQTT(self, data="Default Message"):
 
 Below are the working pictures of the library written into the library I developed.
 
-![full_connection_lib_1](/images/lib_qmt_full_input_1.png)
-![full_connection_lib_2](/images/lib_qmt_full_input_2.png) 
+![full_connection_lib_1](images/lib_qmt_full_input_1.png)
+![full_connection_lib_2](images/lib_qmt_full_input_2.png) 
 
 ## Overview of Protocols that Raspberry Pi can Access the Internet via Modem (PPP, QMI/RMNET, ECM)
 
@@ -72,7 +72,7 @@ Below are the working pictures of the library written into the library I develop
 * I updated my apn value in **quectel-chat-connect** file. 
 * Finally, when I tried to run the scripts with **pppd call quectel-ppp** command, I got **Permission Denied** error and I ran `sudo su` command to solve it. 
 
-![ppp-permission-denied](/images/pppd_call_terminal.png)
+![ppp-permission-denied](images/pppd_call_terminal.png)
 * After solving this problem, I ran the **pppd call quectel-ppp** command, but I am getting an error as shown in the picture below and unfortunately I cannot solve it for now. 
 
-![ppp-error](/images/connection_terminated.png)
+![ppp-error](images/connection_terminated.png)
