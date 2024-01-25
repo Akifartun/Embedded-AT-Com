@@ -257,7 +257,8 @@
 * Qualcomm MSM Interface (QMI) is a protocol designed specifically for communicating over cellular data links. This protocol offers a more modern and customizable structure compared to previous connection protocols, which provides more flexibility in cellular data transmission and management. 
 * Reference [sixfab qmi installation site](https://docs.sixfab.com/page/setting-up-a-data-connection-over-qmi-interface-using-libqmi) for QMI protocol installation. 
     * First of all, check the driver options of the USB ports by entering the `lsusb -t` command in the terminal. In this step **qmi_wwan** should appear in the driver section. 
-        ![driver_qmi](images/lsusb_t.png)
+
+          ![driver_qmi](images/lsusb_t.png)
     * In order to provide QMI protocol, `AT+QCFG="usbnet"` command must return 0. 
     * The following commands are entered from the terminal screen and the installation is done.
         ```
