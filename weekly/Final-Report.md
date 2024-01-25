@@ -226,8 +226,9 @@
 * ECM Protocol test steps are given below. 
     * I control the connection with `ifconfig usb0` command. 
         ![ifconfig_usb](images/ifconfig_usb0.png)
-    * I tested my connection with the `ping` command. 
-        ![ping_usb](images/ping_with_ECM.png)
+    * I tested my connection with the `ping` command.
+
+          ![ping_usb](images/ping_with_ECM.png)
     * I did a universal speed test using `speedtest`. **Download: 33.64 Mbit/s**, **Upload: 5.05 Mbit/s**
         ![speed_ecm](images/download_and_upload_speed_ecm.png)
 
@@ -273,7 +274,7 @@
         ```
     * As a last step before the installation phase was completed, I configured the IP address and default route with udhcpc using `sudo udhcpc -q -f -i wwan0` command. 
         ![qmi_connection](images/qmi_connection.png)
-    * The QMI protocol test steps are as follows.
+* The QMI protocol test steps are as follows.
     * I tested my connection with the `ping` command. 
         ![ping_qmi](images/qmi_ping.png)
     * I did a universal speed test using `speedtest`. **Download: 8.39 Mbit/s**, **Upload: 19.97 Mbit/s**
