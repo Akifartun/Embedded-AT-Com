@@ -1,8 +1,8 @@
 import serial_comm
 
 device = serial_comm.Communicate("/dev/ttyUSB2", timeout=5)
-http_comm = serial_comm.HTTP_COMM(device)
-mqtt_comm = serial_comm.MQTT_COMM(device)
+http_comm = serial_comm.HttpComm(device)
+mqtt_comm = serial_comm.MqttComm(device)
 
 # AT COMMANDS DEMO
 # device.send_at_command("AT")
